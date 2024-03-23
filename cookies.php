@@ -5,16 +5,16 @@
 <html>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Establecer la cookie al hacer clic en 'Temuco'.
+    
     document.getElementById('Custom Filter').addEventListener('click', function() {
-        document.cookie = "temuco_filter=true; path=/";
-        location.reload(); // Recargar la página para aplicar el filtro.
+        document.cookie = "custom_filter=true; path=/";
+        location.reload(); // reload web
     });
 
     // Eliminar la cookie al hacer clic en 'All Members'.
     document.getElementById('activity-all').addEventListener('click', function() {
         document.cookie = "custom_filter=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-        location.reload(); // Recargar la página para aplicar el cambio.
+        location.reload(); 
     });
 });
 </script>
@@ -24,7 +24,6 @@ This is how I trigger a cookie with the filter when someone clicks, I put this o
 
 <?php
 function custom_filter_activities_by_location( $activities, $args ) {
-    // Check if the 'temuco' filter is selected via the session cookie.
     if ( isset( $_COOKIE['custom_filter'] ) && $_COOKIE['custom_filter'] === 'true' ) {
         // Filter the activities based on the user's location.
         foreach ( $activities['activities'] as $key => $activity ) {
