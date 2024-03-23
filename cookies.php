@@ -25,7 +25,7 @@ This is how I trigger a cookie with the filter when someone clicks, I put this o
 <?php
 function custom_filter_activities_by_location( $activities, $args ) {
     // Check if the 'temuco' filter is selected via the session cookie.
-    if ( isset( $_COOKIE['temuco_filter'] ) && $_COOKIE['custom_filter'] === 'true' ) {
+    if ( isset( $_COOKIE['custom_filter'] ) && $_COOKIE['custom_filter'] === 'true' ) {
         // Filter the activities based on the user's location.
         foreach ( $activities['activities'] as $key => $activity ) {
             $user_location = xprofile_get_field_data( 16, $activity->user_id );
